@@ -13,5 +13,14 @@ export interface PasswordFieldProps {
 }
 
 export interface SubmitButtonProps {
-  onSubmit: (e: React.FormEvent<HTMLButtonElement>) => void;
+  loading: boolean;
 }
+
+export type APIError = {
+  error: {
+    code: string;
+    message: string;
+    status_code: number;
+    details?: Record<string, any>;
+  };
+};

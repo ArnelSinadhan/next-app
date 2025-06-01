@@ -1,13 +1,14 @@
-import { EmailField } from "../types/authentication_types";
+import { PasswordFieldProps } from "../../../../domain/auth/types";
 
-function EmailTextField({ email, error, onChange }: EmailField) {
+function PasswordTextField({ password, error, onChange }: PasswordFieldProps) {
   return (
     <div className="flex flex-col">
       <input
-        type="email"
-        value={email}
+        type="password"
+        value={password}
         onChange={onChange}
-        placeholder="Enter your email"
+        placeholder="Enter you password"
+        autoComplete="current-password"
         className={`
           px-4 py-2 border rounded-md focus:outline-none focus:ring-2
           ${
@@ -19,11 +20,11 @@ function EmailTextField({ email, error, onChange }: EmailField) {
       />
       {error && (
         <p className="mt-1 text-sm text-red-600">
-          {typeof error === "string" ? error : "Invalid email address"}
+          {typeof error === "string" ? error : "Invalid password"}
         </p>
       )}
     </div>
   );
 }
 
-export default EmailTextField;
+export default PasswordTextField;

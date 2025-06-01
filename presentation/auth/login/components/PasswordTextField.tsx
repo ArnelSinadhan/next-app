@@ -1,25 +1,22 @@
+import { Input } from "../../../../application/components/ui/input";
+import { Label } from "../../../../application/components/ui/label";
 import { PasswordFieldProps } from "../../../../domain/auth/types";
 
 function PasswordTextField({ password, error, onChange }: PasswordFieldProps) {
   return (
-    <div className="flex flex-col">
-      <input
+    <div className="space-y-2">
+      <Label htmlFor="password">Password</Label>
+      <Input
+        id="password"
         type="password"
         value={password}
         onChange={onChange}
-        placeholder="Enter you password"
+        placeholder="Enter your password"
         autoComplete="current-password"
-        className={`
-          px-4 py-2 border rounded-md focus:outline-none focus:ring-2
-          ${
-            error
-              ? "border-red-500 focus:ring-red-500"
-              : "border-gray-300 focus:ring-blue-500"
-          }
-        `}
+        className={error ? "border-red-500 focus-visible:ring-red-500" : ""}
       />
       {error && (
-        <p className="mt-1 text-sm text-red-600">
+        <p className="text-sm text-red-600">
           {typeof error === "string" ? error : "Invalid password"}
         </p>
       )}

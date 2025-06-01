@@ -1,16 +1,16 @@
+import { Button } from "../../../../application/components/ui/button";
 import { SubmitButtonProps } from "../../../../domain/auth/types";
 
 function SubmitButton({ loading }: SubmitButtonProps) {
   return (
-    <button
+    <Button
       type="submit"
       disabled={loading}
-      className={`w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition ${
-        loading ? "opacity-50 cursor-not-allowed" : ""
-      }`}
+      className="w-full"
+      variant="default"
     >
       {loading ? "Logging in..." : "Login"}
-    </button>
+    </Button>
   );
 }
 

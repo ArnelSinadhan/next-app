@@ -41,6 +41,7 @@ export function useLogin() {
           break;
         case "INVALID_CREDENTIALS":
           setApiError(result.errorMessage ?? "Invalid Email or Password");
+          break;
         case "API_ERROR":
           setApiError(result.errorMessage ?? "An error occurred");
           break;
@@ -55,12 +56,12 @@ export function useLogin() {
     router.push("/newsfeed");
   }
 
-  function emailFieldOnchange(event: React.ChangeEvent<HTMLInputElement>) {
+  function setEmailField(event: React.ChangeEvent<HTMLInputElement>) {
     setEmail(event.target.value);
     setEmailError("");
   }
 
-  function passwordFieldOnChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function setPasswordField(event: React.ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value);
     setPasswordError("");
   }
@@ -73,7 +74,7 @@ export function useLogin() {
     password,
     passwordError,
     onSubmit,
-    emailFieldOnchange,
-    passwordFieldOnChange,
+    setEmailField,
+    setPasswordField,
   };
 }

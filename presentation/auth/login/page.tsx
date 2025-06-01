@@ -14,8 +14,8 @@ function LoginPage() {
     password,
     passwordError,
     onSubmit,
-    emailFieldOnchange,
-    passwordFieldOnChange,
+    setEmailField,
+    setPasswordField,
   } = useLogin();
 
   return (
@@ -37,13 +37,13 @@ function LoginPage() {
         <EmailTextField
           email={email}
           error={emailError}
-          onChange={emailFieldOnchange}
+          onChange={setEmailField}
         />
 
         <PasswordTextField
           password={password}
           error={passwordError}
-          onChange={passwordFieldOnChange}
+          onChange={setPasswordField}
         />
 
         <SubmitButton loading={loading} />
